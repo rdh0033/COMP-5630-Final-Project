@@ -19,7 +19,6 @@ baselineNB: function for Naive Bayes Baseline
 
 """
 
-
 def baselineNB(x_train, y_train, x_test, y_test, dist):
     # Generate Model
 
