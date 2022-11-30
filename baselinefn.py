@@ -53,3 +53,7 @@ def baselineNB(x_train, y_train, x_test, y_test, dist):
     print("Confusion Matrix saved")
 
     return ()
+
+def baselineDT():
+
+    return()
