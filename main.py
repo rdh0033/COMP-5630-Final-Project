@@ -1,6 +1,7 @@
 import csv
 import numpy as np
-from sklearn.model_selection import ShuffleSplit
+from baselinefn import *
+from sklearn.model_selection import ShuffleSplit, train_test_split
 
 
 def load_data(path):
@@ -14,14 +15,14 @@ def load_data(path):
     return X, Y
 
 
-def train_test_split(X, Y):
-    shuffle_split = ShuffleSplit(n_splits=1, test_size=0.2)
-
-    for train_index, test_index in shuffle_split.split(X):
-        train = train_index
-        test = test_index
-
-    return train, test
+# def train_test_split(X, Y):
+#     shuffle_split = ShuffleSplit(n_splits=1, test_size=0.2)
+#
+#     for train_index, test_index in shuffle_split.split(X):
+#         train = train_index
+#         test = test_index
+#
+#     return train, test
 
 
 class perceptron():
@@ -69,8 +70,15 @@ class perceptron():
 
         return predictions
 
-
+# Data processing
 path = "spambase/spambase.data"
 data, labels = load_data(path)
+x_train, x_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, random_state=1)
+
+# MLP
+
+# Baseline Functions
+baselineNB(x_train, y_train, x_test, y_test, 2)
+baselineDT(x_train, y_train, x_test, y_test)
 
 
